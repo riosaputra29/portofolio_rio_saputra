@@ -761,13 +761,13 @@ const PROJECTS = [
     github: "https://github.com/riosaputra29/automated-reporting", demo: ""
   },
   {
-    name: "Sales Data Warehouse", icon: "database",
-    problem: "Sales data lived across disconnected spreadsheets, making trend analysis slow and error-prone.",
-    solution: "Designed a normalized PostgreSQL warehouse with a scheduled ingestion layer, consolidating every regional sales source into one model.",
-    architecture: "Regional CSV/API sources → Python ingestion → PostgreSQL warehouse (star schema) → Power BI.",
+    name: "Integrated Operation Plan Warehouse", icon: "database",
+    problem: "Operational data from 5+ forestry departments (planting, harvesting, species, seedlot) lived across disconnected systems, making cross-department reporting slow and inconsistent.",
+    solution: "Architected a centralized data warehouse in Postgre, using Pentaho and SSIS as the ETL layer to consolidate operational data from multiple sources into a single model consumable by every department across the company.",
+    architecture: "Multi-source operational data → Pentaho & SSIS (ETL) → Postgre →  Dynamic dashboards (Website/Power BI).",
     impact: "Gave the sales team a single source of truth and cut analysis turnaround from days to minutes.",
     tech: ["PostgreSQL","Python","Power BI","Data Modeling"],
-    github: "https://github.com/riosaputra29/sales-warehouse", demo: ""
+    github: "https://github.com/riosaputra29/Integrated Operation Plan Warehouse", demo: ""
   },
   {
     name: "Cloud Log Pipeline", icon: "cloud",
