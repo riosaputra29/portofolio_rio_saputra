@@ -1,0 +1,945 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Rio Saputra — Data Engineer Portfolio</title>
+<meta name="description" content="Professional portfolio of Rio Saputra, Data Engineer specializing in SQL, PostgreSQL, data engineering, automation, ETL, cloud, and data solutions." />
+<meta property="og:title" content="Rio Saputra — Data Engineer Portfolio" />
+<meta property="og:description" content="Professional portfolio of Rio Saputra, Data Engineer specializing in SQL, PostgreSQL, data engineering, automation, ETL, cloud, and data solutions." />
+<meta property="og:type" content="website" />
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><defs><linearGradient id=%22g%22 x1=%220%22 y1=%220%22 x2=%221%22 y2=%221%22><stop offset=%220%22 stop-color=%22%234F7CFF%22/><stop offset=%221%22 stop-color=%22%238B5CF6%22/></defs><rect width=%22100%22 height=%22100%22 rx=%2222%22 fill=%22url(%23g)%22/><text x=%2250%22 y=%2265%22 font-size=%2246%22 font-family=%22sans-serif%22 font-weight=%22700%22 fill=%22white%22 text-anchor=%22middle%22>RS</text></svg>" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Sora:wght@600;700;800&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+<style>
+  :root{
+    --grad: linear-gradient(135deg,#4F7CFF 0%,#8B5CF6 100%);
+  }
+  html{scroll-behavior:smooth;}
+  body{font-family:'Inter',system-ui,sans-serif; background:#ffffff; color:#0F172A;}
+  h1,h2,h3{font-family:'Sora','Inter',system-ui,sans-serif;}
+  .grad-text{background-image:var(--grad); -webkit-background-clip:text; background-clip:text; color:transparent;}
+  .grad-bg{background-image:var(--grad);}
+  .line-clamp-2{display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden;}
+
+  @keyframes floatSlow{0%,100%{transform:translateY(0)} 50%{transform:translateY(-10px)}}
+  .float-tag{animation:floatSlow 5s ease-in-out infinite;}
+
+  @keyframes modalIn{from{opacity:0; transform:translateY(12px) scale(.98)} to{opacity:1; transform:translateY(0) scale(1)}}
+  .modal-in{animation:modalIn .25s ease;}
+
+  .reveal{opacity:0; transform:translateY(18px); transition:opacity .6s ease, transform .6s ease;}
+  .reveal.visible{opacity:1; transform:translateY(0);}
+
+  .nav-link{color:#475569; transition:color .2s, background-color .2s;}
+  .nav-link.active{color:#4F46E5; background-color:rgba(79,70,229,0.08);}
+
+  .btn-primary{background-image:var(--grad); color:#fff; box-shadow:0 10px 25px -8px rgba(99,102,241,0.45); transition:all .3s;}
+  .btn-primary:hover{transform:translateY(-2px); box-shadow:0 14px 30px -8px rgba(99,102,241,0.55);}
+  .btn-secondary{background:#fff; color:#334155; border:1px solid #E2E8F0; transition:all .3s;}
+  .btn-secondary:hover{transform:translateY(-2px); border-color:#C7D2FE; color:#4F46E5;}
+
+  .filter-btn{color:#475569; background:#fff; border:1px solid #E2E8F0; transition:all .2s;}
+  .filter-btn.active{color:#fff; background-image:var(--grad); border-color:transparent;}
+
+  .skill-card:hover, .exp-card:hover, .stat-card:hover, .cert-card:hover{transform:translateY(-4px); box-shadow:0 16px 30px -12px rgba(15,23,42,0.12); border-color:#E0E7FF;}
+  .skill-card, .exp-card, .stat-card, .cert-card{transition:all .3s;}
+
+  .project-card{transition:all .35s;}
+  .project-card:hover{transform:translateY(-6px); box-shadow:0 20px 40px -14px rgba(15,23,42,0.18); border-color:#E0E7FF;}
+  .project-thumb-overlay{opacity:0; transition:opacity .3s;}
+  .project-card:hover .project-thumb-overlay{opacity:1;}
+  .project-card:hover .project-thumb-icon{transform:scale(1.1);}
+  .project-thumb-icon{transition:transform .5s;}
+
+  .social-icon{transition:all .3s;}
+  .social-icon:hover{transform:translateY(-2px); color:#4F46E5; border-color:#C7D2FE; box-shadow:0 8px 20px -8px rgba(99,102,241,0.35);}
+
+  .contact-row{transition:all .3s;}
+  .contact-row:hover{transform:translateY(-2px); box-shadow:0 12px 24px -12px rgba(15,23,42,0.15); border-color:#E0E7FF;}
+
+  .field-input{border:1px solid #E2E8F0; transition:border-color .2s;}
+  .field-input:focus{outline:none; border-color:#818CF8;}
+  .field-error{border-color:#F87171 !important;}
+
+  #navbar{transition:all .3s;}
+  #navbar.scrolled{background:rgba(255,255,255,0.85); backdrop-filter:blur(12px); border-bottom:1px solid rgba(15,23,42,0.06); box-shadow:0 4px 24px rgba(15,23,42,0.05);}
+
+  .timeline-dot{transition:transform .3s;}
+  .exp-card:hover + .timeline-dot, .exp-item:hover .timeline-dot{transform:scale(1.25);}
+
+  ::selection{background:#C7D2FE;}
+  :focus-visible{outline:2px solid #6366F1; outline-offset:2px;}
+</style>
+</head>
+<body class="bg-white">
+
+<!-- ============ NAVBAR ============ -->
+<header id="navbar" class="fixed top-0 left-0 right-0 z-50">
+  <div class="max-w-6xl mx-auto px-5 sm:px-8 h-16 flex items-center justify-between">
+    <a href="#home" class="w-10 h-10 rounded-xl grad-bg flex items-center justify-center text-white font-semibold text-sm">RS</a>
+
+    <nav class="hidden lg:flex items-center gap-1" id="desktop-nav">
+      <a href="#home" data-section="home" class="nav-link px-3.5 py-2 rounded-lg text-sm font-medium">Home</a>
+      <a href="#about" data-section="about" class="nav-link px-3.5 py-2 rounded-lg text-sm font-medium">About</a>
+      <a href="#skills" data-section="skills" class="nav-link px-3.5 py-2 rounded-lg text-sm font-medium">Skills</a>
+      <a href="#experience" data-section="experience" class="nav-link px-3.5 py-2 rounded-lg text-sm font-medium">Experience</a>
+      <a href="#projects" data-section="projects" class="nav-link px-3.5 py-2 rounded-lg text-sm font-medium">Projects</a>
+      <a href="#certifications" data-section="certifications" class="nav-link px-3.5 py-2 rounded-lg text-sm font-medium">Certifications</a>
+      <a href="#education" data-section="education" class="nav-link px-3.5 py-2 rounded-lg text-sm font-medium">Education</a>
+      <a href="#contact" data-section="contact" class="nav-link px-3.5 py-2 rounded-lg text-sm font-medium">Contact</a>
+    </nav>
+
+    <a href="CV_Rio_Saputra_HD.pdf" target="_blank" class="hidden lg:inline-flex btn-primary items-center gap-2 px-6 py-3 rounded-xl font-medium text-sm">
+      Download CV <i data-lucide="download" class="w-4 h-4"></i>
+    </a>
+
+    <button id="mobile-menu-btn" class="lg:hidden text-slate-700" aria-label="Toggle menu">
+      <i data-lucide="menu" class="w-6 h-6"></i>
+    </button>
+  </div>
+
+  <div id="mobile-menu" class="hidden lg:hidden bg-white border-t border-slate-100 px-5 py-4 flex flex-col gap-1">
+    <a href="#home" class="mobile-link text-left px-3 py-2.5 rounded-lg text-sm font-medium text-slate-600 hover:bg-slate-50">Home</a>
+    <a href="#about" class="mobile-link text-left px-3 py-2.5 rounded-lg text-sm font-medium text-slate-600 hover:bg-slate-50">About</a>
+    <a href="#skills" class="mobile-link text-left px-3 py-2.5 rounded-lg text-sm font-medium text-slate-600 hover:bg-slate-50">Skills</a>
+    <a href="#experience" class="mobile-link text-left px-3 py-2.5 rounded-lg text-sm font-medium text-slate-600 hover:bg-slate-50">Experience</a>
+    <a href="#projects" class="mobile-link text-left px-3 py-2.5 rounded-lg text-sm font-medium text-slate-600 hover:bg-slate-50">Projects</a>
+    <a href="#certifications" class="mobile-link text-left px-3 py-2.5 rounded-lg text-sm font-medium text-slate-600 hover:bg-slate-50">Certifications</a>
+    <a href="#education" class="mobile-link text-left px-3 py-2.5 rounded-lg text-sm font-medium text-slate-600 hover:bg-slate-50">Education</a>
+    <a href="#contact" class="mobile-link text-left px-3 py-2.5 rounded-lg text-sm font-medium text-slate-600 hover:bg-slate-50">Contact</a>
+    <a href="#" class="btn-primary inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl font-medium text-sm mt-2">
+      Download CV <i data-lucide="download" class="w-4 h-4"></i>
+    </a>
+  </div>
+</header>
+
+<!-- ============ HERO ============ -->
+<section id="home" class="relative pt-32 pb-20 sm:pt-40 sm:pb-28 overflow-hidden" style="background:#FAFAFC;">
+  <div class="absolute -top-20 -right-20 w-80 h-80 rounded-full opacity-30 blur-3xl pointer-events-none" style="background-image:linear-gradient(135deg,#93C5FD,#C4B5FD);"></div>
+  <div class="absolute top-40 -left-24 w-72 h-72 rounded-full opacity-20 blur-3xl pointer-events-none" style="background-image:linear-gradient(135deg,#A5F3FC,#93C5FD);"></div>
+
+  <div class="relative max-w-6xl mx-auto px-5 sm:px-8 grid lg:grid-cols-2 gap-12 lg:gap-8 items-center">
+    <div>
+      <span class="inline-block text-xs font-semibold tracking-wide px-3.5 py-1.5 rounded-full mb-6" style="color:#4F46E5; background-color:rgba(79,70,229,0.08);">
+        DATA ENGINEER · DATA · IT
+      </span>
+
+      <h1 class="text-4xl sm:text-5xl lg:text-[3.4rem] font-bold text-slate-900 leading-[1.1] mb-5">Hi, I'm Rio Saputra</h1>
+
+      <p class="text-lg sm:text-xl font-medium mb-4 grad-text">
+        Data Engineer passionate about building reliable data solutions, automation, analytics, and scalable data systems.
+      </p>
+
+      <p class="text-slate-500 leading-relaxed mb-8 max-w-lg">
+        I design and maintain data pipelines that turn messy, scattered data into something teams can actually trust and use — from ingestion and transformation to reporting, on infrastructure built to scale.
+      </p>
+
+      <div class="flex flex-wrap gap-3 mb-8">
+        <a href="#projects" class="btn-primary inline-flex items-center gap-2 px-6 py-3 rounded-xl font-medium text-sm">
+          View My Projects <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+        </a>
+        <a href="#" class="btn-secondary inline-flex items-center gap-2 px-6 py-3 rounded-xl font-medium text-sm">
+          Download CV <i data-lucide="download" class="w-4 h-4"></i>
+        </a>
+      </div>
+
+      <div class="reveal lg:col-span-2 space-y-4">
+        <a href="mailto:rio.saputra@email.com" class="contact-row flex items-center gap-3.5 bg-white rounded-xl border border-slate-100 p-4 group">
+          <div class="w-10 h-10 rounded-lg grad-bg flex items-center justify-center text-white flex-shrink-0"><i data-lucide="mail" class="w-[17px] h-[17px]"></i></div>
+          <div><div class="text-xs text-slate-400">Email</div><div class="text-sm font-medium text-slate-700 group-hover:text-indigo-600">rio.saputra@email.com</div></div>
+        </a>
+        <a href="tel:+6281234567890" class="contact-row flex items-center gap-3.5 bg-white rounded-xl border border-slate-100 p-4 group">
+          <div class="w-10 h-10 rounded-lg grad-bg flex items-center justify-center text-white flex-shrink-0"><i data-lucide="phone" class="w-[17px] h-[17px]"></i></div>
+          <div><div class="text-xs text-slate-400">Phone</div><div class="text-sm font-medium text-slate-700 group-hover:text-indigo-600">+62 812-3456-7890</div></div>
+        </a>
+        <a href="https://linkedin.com/in/riosaputra" target="_blank" rel="noreferrer" class="contact-row flex items-center gap-3.5 bg-white rounded-xl border border-slate-100 p-4 group">
+          <div class="w-10 h-10 rounded-lg grad-bg flex items-center justify-center text-white flex-shrink-0"><svg class="w-[17px] h-[17px]" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.36V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28ZM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12ZM7.12 20.45H3.56V9h3.56v11.45Z"/></svg></div>
+          <div><div class="text-xs text-slate-400">LinkedIn</div><div class="text-sm font-medium text-slate-700 group-hover:text-indigo-600">linkedin.com/in/riosaputra</div></div>
+        </a>
+        </div>
+      </div>
+
+      <div class="relative flex justify-center lg:justify-end">
+        <div class="relative w-64 h-64 sm:w-80 sm:h-80">
+          <div class="absolute inset-0 rounded-[2.5rem] opacity-40 blur-2xl grad-bg"></div>
+          <div class="relative w-full h-full rounded-[2.5rem] bg-white border border-slate-100 shadow-2xl flex items-center justify-center overflow-hidden">
+          <div class="relative w-full h-full rounded-[2.5rem] bg-white border border-slate-100 shadow-2xl flex items-center justify-center overflow-hidden">
+            <img src="rio.jpg" alt="Rio Saputra" class="w-full h-full object-cover" />
+          </div>
+        </div>
+
+        <span class="float-tag hidden sm:flex absolute top-2 -left-8 px-3 py-1.5 rounded-lg bg-white border border-slate-100 shadow-md text-xs font-semibold text-slate-600" style="animation-delay:0s;">SQL</span>
+        <span class="float-tag hidden sm:flex absolute top-1/4 -right-10 px-3 py-1.5 rounded-lg bg-white border border-slate-100 shadow-md text-xs font-semibold text-slate-600" style="animation-delay:.6s;">PostgreSQL</span>
+        <span class="float-tag hidden sm:flex absolute bottom-1/3 -left-12 px-3 py-1.5 rounded-lg bg-white border border-slate-100 shadow-md text-xs font-semibold text-slate-600" style="animation-delay:1.2s;">Python</span>
+        <span class="float-tag hidden sm:flex absolute bottom-6 -right-6 px-3 py-1.5 rounded-lg bg-white border border-slate-100 shadow-md text-xs font-semibold text-slate-600" style="animation-delay:.3s;">AWS</span>
+        <span class="float-tag hidden sm:flex absolute top-1/2 -left-16 px-3 py-1.5 rounded-lg bg-white border border-slate-100 shadow-md text-xs font-semibold text-slate-600" style="animation-delay:.9s;">ETL</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ STATS ============ -->
+<section class="relative -mt-10 sm:-mt-14 z-10">
+  <div class="max-w-6xl mx-auto px-5 sm:px-8">
+    <div class="reveal grid grid-cols-2 lg:grid-cols-4 gap-4">
+      <div class="stat-card bg-white rounded-2xl border border-slate-100 shadow-sm px-5 py-6 text-center">
+        <div class="text-3xl font-bold mb-1 grad-text">4+</div>
+        <div class="text-xs sm:text-sm text-slate-500 font-medium">Years Experience</div>
+      </div>
+      <div class="stat-card bg-white rounded-2xl border border-slate-100 shadow-sm px-5 py-6 text-center">
+        <div class="text-3xl font-bold mb-1 grad-text">23</div>
+        <div class="text-xs sm:text-sm text-slate-500 font-medium">Projects Completed</div>
+      </div>
+      <div class="stat-card bg-white rounded-2xl border border-slate-100 shadow-sm px-5 py-6 text-center">
+        <div class="text-3xl font-bold mb-1 grad-text">18</div>
+        <div class="text-xs sm:text-sm text-slate-500 font-medium">Technologies</div>
+      </div>
+      <div class="stat-card bg-white rounded-2xl border border-slate-100 shadow-sm px-5 py-6 text-center">
+        <div class="text-3xl font-bold mb-1 grad-text">6</div>
+        <div class="text-xs sm:text-sm text-slate-500 font-medium">Certifications</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ABOUT ============ -->
+<section id="about" class="py-24 sm:py-28">
+  <div class="max-w-6xl mx-auto px-5 sm:px-8 grid lg:grid-cols-2 gap-14 items-center">
+    <div class="reveal relative w-full max-w-sm mx-auto lg:mx-0">
+      <div class="absolute -inset-3 rounded-3xl opacity-20 blur-xl grad-bg"></div>
+      <div class="relative w-full h-full rounded-[2.5rem] bg-white border border-slate-100 shadow-2xl flex items-center justify-center overflow-hidden">
+            <img src="rio.jpg" alt="Rio Saputra" class="w-full h-full object-cover" />
+          </div>
+    </div>
+
+    <div class="reveal">
+      <h2 class="text-3xl sm:text-4xl font-bold text-slate-900 mb-5">About Me</h2>
+      <p class="text-slate-500 leading-relaxed mb-6">
+        I'm a data engineer based in Jakarta, Indonesia focused on building dependable data infrastructure — pipelines, databases, and automation that hold up under real production load, not just in a notebook.
+      </p>
+      <p class="text-slate-500 leading-relaxed mb-7">
+        My day-to-day centers on SQL and PostgreSQL, moving and shaping data through ETL/ELT workflows, deploying on cloud infrastructure, and turning the result into reporting people actually use to make decisions.
+      </p>
+
+      <div class="grid grid-cols-2 gap-3 mb-7">
+        <div class="flex items-center gap-2 text-sm text-slate-600"><i data-lucide="check-circle-2" class="w-4 h-4 text-indigo-500 flex-shrink-0"></i>Data Engineering</div>
+        <div class="flex items-center gap-2 text-sm text-slate-600"><i data-lucide="check-circle-2" class="w-4 h-4 text-indigo-500 flex-shrink-0"></i>SQL &amp; PostgreSQL</div>
+        <div class="flex items-center gap-2 text-sm text-slate-600"><i data-lucide="check-circle-2" class="w-4 h-4 text-indigo-500 flex-shrink-0"></i>ETL / ELT pipelines</div>
+        <div class="flex items-center gap-2 text-sm text-slate-600"><i data-lucide="check-circle-2" class="w-4 h-4 text-indigo-500 flex-shrink-0"></i>Workflow automation</div>
+        <div class="flex items-center gap-2 text-sm text-slate-600"><i data-lucide="check-circle-2" class="w-4 h-4 text-indigo-500 flex-shrink-0"></i>Cloud infrastructure</div>
+        <div class="flex items-center gap-2 text-sm text-slate-600"><i data-lucide="check-circle-2" class="w-4 h-4 text-indigo-500 flex-shrink-0"></i>Reporting &amp; analysis</div>
+      </div>
+
+      <div class="flex flex-wrap gap-2">
+        <span class="text-xs font-medium px-3.5 py-1.5 rounded-full border border-indigo-100" style="color:#4F46E5; background-color:rgba(79,70,229,0.06);">Problem Solver</span>
+        <span class="text-xs font-medium px-3.5 py-1.5 rounded-full border border-indigo-100" style="color:#4F46E5; background-color:rgba(79,70,229,0.06);">Data Driven</span>
+        <span class="text-xs font-medium px-3.5 py-1.5 rounded-full border border-indigo-100" style="color:#4F46E5; background-color:rgba(79,70,229,0.06);">Continuous Learner</span>
+        <span class="text-xs font-medium px-3.5 py-1.5 rounded-full border border-indigo-100" style="color:#4F46E5; background-color:rgba(79,70,229,0.06);">Automation Mindset</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SKILLS ============ -->
+<section id="skills" class="py-24 sm:py-28" style="background:#FAFAFC;">
+  <div class="max-w-6xl mx-auto px-5 sm:px-8">
+    <div class="reveal text-center max-w-xl mx-auto mb-10">
+      <h2 class="text-3xl sm:text-4xl font-bold text-slate-900 mb-3">Skills &amp; Tools</h2>
+      <p class="text-slate-500">The technologies I use to build and ship data systems.</p>
+    </div>
+
+    <div class="reveal flex flex-wrap justify-center gap-2 mb-10" id="skill-filters">
+      <button class="filter-btn active px-4 py-2 rounded-full text-sm font-medium" data-filter="all">All</button>
+      <button class="filter-btn px-4 py-2 rounded-full text-sm font-medium" data-filter="data-engineering">Data Engineering</button>
+      <button class="filter-btn px-4 py-2 rounded-full text-sm font-medium" data-filter="programming">Programming</button>
+      <button class="filter-btn px-4 py-2 rounded-full text-sm font-medium" data-filter="cloud">Cloud &amp; Infrastructure</button>
+      <button class="filter-btn px-4 py-2 rounded-full text-sm font-medium" data-filter="analytics">Data &amp; Analytics</button>
+      <button class="filter-btn px-4 py-2 rounded-full text-sm font-medium" data-filter="tools">Tools</button>
+    </div>
+
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5" id="skills-grid">
+      <!-- Data Engineering -->
+      <div class="skill-card reveal bg-white rounded-2xl border border-slate-100 p-5" data-cat="data-engineering">
+        <div class="flex items-center gap-3 mb-2"><div class="w-9 h-9 rounded-lg grad-bg flex items-center justify-center text-white flex-shrink-0"><i data-lucide="database" class="w-4 h-4"></i></div><h3 class="font-semibold text-slate-800">SQL</h3></div>
+        <p class="text-sm text-slate-500 leading-relaxed">Query design, tuning &amp; optimization</p>
+      </div>
+      <div class="skill-card reveal bg-white rounded-2xl border border-slate-100 p-5" data-cat="data-engineering">
+        <div class="flex items-center gap-3 mb-2"><div class="w-9 h-9 rounded-lg grad-bg flex items-center justify-center text-white flex-shrink-0"><i data-lucide="database" class="w-4 h-4"></i></div><h3 class="font-semibold text-slate-800">PostgreSQL</h3></div>
+        <p class="text-sm text-slate-500 leading-relaxed">Primary production database</p>
+      </div>
+      <div class="skill-card reveal bg-white rounded-2xl border border-slate-100 p-5" data-cat="data-engineering">
+        <div class="flex items-center gap-3 mb-2"><div class="w-9 h-9 rounded-lg grad-bg flex items-center justify-center text-white flex-shrink-0"><i data-lucide="database" class="w-4 h-4"></i></div><h3 class="font-semibold text-slate-800">MySQL</h3></div>
+        <p class="text-sm text-slate-500 leading-relaxed">Relational data storage</p>
+      </div>
+      <div class="skill-card reveal bg-white rounded-2xl border border-slate-100 p-5" data-cat="data-engineering">
+        <div class="flex items-center gap-3 mb-2"><div class="w-9 h-9 rounded-lg grad-bg flex items-center justify-center text-white flex-shrink-0"><i data-lucide="database" class="w-4 h-4"></i></div><h3 class="font-semibold text-slate-800">ETL / ELT</h3></div>
+        <p class="text-sm text-slate-500 leading-relaxed">Batch &amp; incremental pipelines</p>
+      </div>
+      <div class="skill-card reveal bg-white rounded-2xl border border-slate-100 p-5" data-cat="data-engineering">
+        <div class="flex items-center gap-3 mb-2"><div class="w-9 h-9 rounded-lg grad-bg flex items-center justify-center text-white flex-shrink-0"><i data-lucide="database" class="w-4 h-4"></i></div><h3 class="font-semibold text-slate-800">Data Pipeline</h3></div>
+        <p class="text-sm text-slate-500 leading-relaxed">Orchestration &amp; scheduling</p>
+      </div>
+      <div class="skill-card reveal bg-white rounded-2xl border border-slate-100 p-5" data-cat="data-engineering">
+        <div class="flex items-center gap-3 mb-2"><div class="w-9 h-9 rounded-lg grad-bg flex items-center justify-center text-white flex-shrink-0"><i data-lucide="database" class="w-4 h-4"></i></div><h3 class="font-semibold text-slate-800">Data Modeling</h3></div>
+        <p class="text-sm text-slate-500 leading-relaxed">Schema &amp; warehouse design</p>
+      </div>
+
+      <!-- Programming -->
+      <div class="skill-card reveal bg-white rounded-2xl border border-slate-100 p-5" data-cat="programming">
+        <div class="flex items-center gap-3 mb-2"><div class="w-9 h-9 rounded-lg grad-bg flex items-center justify-center text-white flex-shrink-0"><i data-lucide="code-2" class="w-4 h-4"></i></div><h3 class="font-semibold text-slate-800">Python</h3></div>
+        <p class="text-sm text-slate-500 leading-relaxed">Pipelines, scripting &amp; automation</p>
+      </div>
+      <div class="skill-card reveal bg-white rounded-2xl border border-slate-100 p-5" data-cat="programming">
+        <div class="flex items-center gap-3 mb-2"><div class="w-9 h-9 rounded-lg grad-bg flex items-center justify-center text-white flex-shrink-0"><i data-lucide="code-2" class="w-4 h-4"></i></div><h3 class="font-semibold text-slate-800">JavaScript</h3></div>
+        <p class="text-sm text-slate-500 leading-relaxed">Tooling &amp; lightweight services</p>
+      </div>
+      <div class="skill-card reveal bg-white rounded-2xl border border-slate-100 p-5" data-cat="programming">
+        <div class="flex items-center gap-3 mb-2"><div class="w-9 h-9 rounded-lg grad-bg flex items-center justify-center text-white flex-shrink-0"><i data-lucide="code-2" class="w-4 h-4"></i></div><h3 class="font-semibold text-slate-800">Bash</h3></div>
+        <p class="text-sm text-slate-500 leading-relaxed">Automation &amp; system scripting</p>
+      </div>
+
+      <!-- Cloud -->
+      <div class="skill-card reveal bg-white rounded-2xl border border-slate-100 p-5" data-cat="cloud">
+        <div class="flex items-center gap-3 mb-2"><div class="w-9 h-9 rounded-lg grad-bg flex items-center justify-center text-white flex-shrink-0"><i data-lucide="cloud" class="w-4 h-4"></i></div><h3 class="font-semibold text-slate-800">AWS</h3></div>
+        <p class="text-sm text-slate-500 leading-relaxed">S3, EC2, RDS &amp; Lambda</p>
+      </div>
+      <div class="skill-card reveal bg-white rounded-2xl border border-slate-100 p-5" data-cat="cloud">
+        <div class="flex items-center gap-3 mb-2"><div class="w-9 h-9 rounded-lg grad-bg flex items-center justify-center text-white flex-shrink-0"><i data-lucide="cloud" class="w-4 h-4"></i></div><h3 class="font-semibold text-slate-800">Docker</h3></div>
+        <p class="text-sm text-slate-500 leading-relaxed">Containerized deployments</p>
+      </div>
+      <div class="skill-card reveal bg-white rounded-2xl border border-slate-100 p-5" data-cat="cloud">
+        <div class="flex items-center gap-3 mb-2"><div class="w-9 h-9 rounded-lg grad-bg flex items-center justify-center text-white flex-shrink-0"><i data-lucide="cloud" class="w-4 h-4"></i></div><h3 class="font-semibold text-slate-800">Linux</h3></div>
+        <p class="text-sm text-slate-500 leading-relaxed">Server administration</p>
+      </div>
+
+      <!-- Analytics -->
+      <div class="skill-card reveal bg-white rounded-2xl border border-slate-100 p-5" data-cat="analytics">
+        <div class="flex items-center gap-3 mb-2"><div class="w-9 h-9 rounded-lg grad-bg flex items-center justify-center text-white flex-shrink-0"><i data-lucide="bar-chart-3" class="w-4 h-4"></i></div><h3 class="font-semibold text-slate-800">Excel</h3></div>
+        <p class="text-sm text-slate-500 leading-relaxed">Ad-hoc analysis &amp; modeling</p>
+      </div>
+      <div class="skill-card reveal bg-white rounded-2xl border border-slate-100 p-5" data-cat="analytics">
+        <div class="flex items-center gap-3 mb-2"><div class="w-9 h-9 rounded-lg grad-bg flex items-center justify-center text-white flex-shrink-0"><i data-lucide="bar-chart-3" class="w-4 h-4"></i></div><h3 class="font-semibold text-slate-800">Power BI</h3></div>
+        <p class="text-sm text-slate-500 leading-relaxed">Dashboards &amp; reporting</p>
+      </div>
+      <div class="skill-card reveal bg-white rounded-2xl border border-slate-100 p-5" data-cat="analytics">
+        <div class="flex items-center gap-3 mb-2"><div class="w-9 h-9 rounded-lg grad-bg flex items-center justify-center text-white flex-shrink-0"><i data-lucide="bar-chart-3" class="w-4 h-4"></i></div><h3 class="font-semibold text-slate-800">Data Analysis</h3></div>
+        <p class="text-sm text-slate-500 leading-relaxed">Exploratory &amp; statistical</p>
+      </div>
+      <div class="skill-card reveal bg-white rounded-2xl border border-slate-100 p-5" data-cat="analytics">
+        <div class="flex items-center gap-3 mb-2"><div class="w-9 h-9 rounded-lg grad-bg flex items-center justify-center text-white flex-shrink-0"><i data-lucide="bar-chart-3" class="w-4 h-4"></i></div><h3 class="font-semibold text-slate-800">Reporting</h3></div>
+        <p class="text-sm text-slate-500 leading-relaxed">Stakeholder-ready summaries</p>
+      </div>
+      <div class="skill-card reveal bg-white rounded-2xl border border-slate-100 p-5" data-cat="analytics">
+        <div class="flex items-center gap-3 mb-2"><div class="w-9 h-9 rounded-lg grad-bg flex items-center justify-center text-white flex-shrink-0"><i data-lucide="bar-chart-3" class="w-4 h-4"></i></div><h3 class="font-semibold text-slate-800">SQL</h3></div>
+        <p class="text-sm text-slate-500 leading-relaxed">Data Sources</p>
+      </div>
+      <!-- Tools -->
+      <div class="skill-card reveal bg-white rounded-2xl border border-slate-100 p-5" data-cat="tools">
+        <div class="flex items-center gap-3 mb-2"><div class="w-9 h-9 rounded-lg grad-bg flex items-center justify-center text-white flex-shrink-0"><i data-lucide="wrench" class="w-4 h-4"></i></div><h3 class="font-semibold text-slate-800">Git</h3></div>
+        <p class="text-sm text-slate-500 leading-relaxed">Version control workflows</p>
+      </div>
+      <div class="skill-card reveal bg-white rounded-2xl border border-slate-100 p-5" data-cat="tools">
+        <div class="flex items-center gap-3 mb-2"><div class="w-9 h-9 rounded-lg grad-bg flex items-center justify-center text-white flex-shrink-0"><i data-lucide="wrench" class="w-4 h-4"></i></div><h3 class="font-semibold text-slate-800">GitHub</h3></div>
+        <p class="text-sm text-slate-500 leading-relaxed">Collaboration &amp; CI</p>
+      </div>
+      <div class="skill-card reveal bg-white rounded-2xl border border-slate-100 p-5" data-cat="tools">
+        <div class="flex items-center gap-3 mb-2"><div class="w-9 h-9 rounded-lg grad-bg flex items-center justify-center text-white flex-shrink-0"><i data-lucide="wrench" class="w-4 h-4"></i></div><h3 class="font-semibold text-slate-800">DBeaver</h3></div>
+        <p class="text-sm text-slate-500 leading-relaxed">Database management</p>
+      </div>
+      <div class="skill-card reveal bg-white rounded-2xl border border-slate-100 p-5" data-cat="tools">
+        <div class="flex items-center gap-3 mb-2"><div class="w-9 h-9 rounded-lg grad-bg flex items-center justify-center text-white flex-shrink-0"><i data-lucide="wrench" class="w-4 h-4"></i></div><h3 class="font-semibold text-slate-800">VS Code</h3></div>
+        <p class="text-sm text-slate-500 leading-relaxed">Daily development</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ EXPERIENCE ============ -->
+<section id="experience" class="py-24 sm:py-28">
+  <div class="max-w-4xl mx-auto px-5 sm:px-8">
+    <div class="reveal text-center mb-14">
+      <h2 class="text-3xl sm:text-4xl font-bold text-slate-900 mb-3">Experience</h2>
+      <p class="text-slate-500">Where I've worked and what I've shipped.</p>
+    </div>
+
+    <div class="relative pl-8 sm:pl-10">
+      <div class="absolute left-[7px] sm:left-[9px] top-2 bottom-2 w-px bg-slate-200"></div>
+
+      <div class="reveal exp-item relative pb-12 group">
+        <span class="timeline-dot absolute -left-8 sm:-left-10 top-1.5 w-4 h-4 rounded-full grad-bg border-4 border-white shadow"></span>
+        <div class="exp-card bg-white rounded-2xl border border-slate-100 p-6 sm:p-7">
+          <span class="text-xs font-semibold tracking-wide text-indigo-500">2018 — Present</span>
+          <h3 class="text-lg font-bold text-slate-900 mt-1">Data Engineer</h3>
+          <div class="flex flex-wrap items-center gap-x-3 gap-y-1 text-sm text-slate-500 mb-4">
+            <span class="font-medium text-slate-600">APRIL GROUP</span>
+            <span class="flex items-center gap-1"><i data-lucide="map-pin" class="w-[13px] h-[13px]"></i>Pangkalan Kerinci, Indonesia</span>
+          </div>
+          <p class="text-slate-500 text-sm leading-relaxed mb-4">Engineered and managed end-to-end data pipelines and supporting software solutions for 5+ forestry operational departments, handling 10M+ annual records.</p>
+          <ul class="space-y-2 mb-5">
+            <li class="flex items-start gap-2 text-sm text-slate-600"><i data-lucide="check-circle-2" class="w-[15px] h-[15px] text-indigo-500 mt-0.5 flex-shrink-0"></i>Architected enterprise data warehouses in Google BigQuery & Oracle, resulting in a 60% reduction in query execution times for executive reporting.</li>
+            <li class="flex items-start gap-2 text-sm text-slate-600"><i data-lucide="check-circle-2" class="w-[15px] h-[15px] text-indigo-500 mt-0.5 flex-shrink-0"></i>Acted as a key Software Developer in building and maintaining internal data tools and dynamic reporting applications.</li>
+            <li class="flex items-start gap-2 text-sm text-slate-600"><i data-lucide="check-circle-2" class="w-[15px] h-[15px] text-indigo-500 mt-0.5 flex-shrink-0"></i>Developed 15+ real-time dynamic dashboards and reports using SSIS, Pentaho, and BigQuery to support strategic management decision-making.</li>
+            <li class="flex items-start gap-2 text-sm text-slate-600"><i data-lucide="check-circle-2" class="w-[15px] h-[15px] text-indigo-500 mt-0.5 flex-shrink-0"></i>Optimized complex SQL queries and resolved backend bottlenecks, ensuring 24/7 data availability with 99% accuracy for 200+ internal stakeholders.</li>
+          </ul>
+          <div class="flex flex-wrap gap-2">
+            <span class="text-xs font-medium px-2.5 py-1 rounded-md bg-slate-50 text-slate-600 border border-slate-100">WebGIS</span>
+            <span class="text-xs font-medium px-2.5 py-1 rounded-md bg-slate-50 text-slate-600 border border-slate-100">PostgreSQL</span>
+            <span class="text-xs font-medium px-2.5 py-1 rounded-md bg-slate-50 text-slate-600 border border-slate-100">SQL</span>
+            <span class="text-xs font-medium px-2.5 py-1 rounded-md bg-slate-50 text-slate-600 border border-slate-100">Python</span>
+            <span class="text-xs font-medium px-2.5 py-1 rounded-md bg-slate-50 text-slate-600 border border-slate-100">Pentaho</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="reveal exp-item relative pb-12 group">
+        <span class="timeline-dot absolute -left-8 sm:-left-10 top-1.5 w-4 h-4 rounded-full grad-bg border-4 border-white shadow"></span>
+        <div class="exp-card bg-white rounded-2xl border border-slate-100 p-6 sm:p-7">
+          <span class="text-xs font-semibold tracking-wide text-indigo-500">2016 — 2018</span>
+          <h3 class="text-lg font-bold text-slate-900 mt-1">Software Developer</h3>
+          <div class="flex flex-wrap items-center gap-x-3 gap-y-1 text-sm text-slate-500 mb-4">
+            <span class="font-medium text-slate-600">PT Riau Sakti United Plantation | Sambu Group</span>
+            <span class="flex items-center gap-1"><i data-lucide="map-pin" class="w-[13px] h-[13px]"></i>Pulau Burung, Indonesia</span>
+          </div>
+          <p class="text-slate-500 text-sm leading-relaxed mb-4">Served as a dedicated Software Developer, designing and deploying a web-based MVC Quality Check application to digitalize hybrid coconut inspection workflows, eliminating manual paper logging.</p>
+          <ul class="space-y-2 mb-5">
+            <li class="flex items-start gap-2 text-sm text-slate-600"><i data-lucide="check-circle-2" class="w-[15px] h-[15px] text-indigo-500 mt-0.5 flex-shrink-0"></i>Developed 10+ dynamic quality control reports using SQL Server & PHP, reducing quality audit lead time from 2 days to 4 hours.</li>
+            <li class="flex items-start gap-2 text-sm text-slate-600"><i data-lucide="check-circle-2" class="w-[15px] h-[15px] text-indigo-500 mt-0.5 flex-shrink-0"></i>Provided full-stack application support and system maintenance for 50+ field QC inspectors, improving inspection data accuracy by 30%.</li>
+            <li class="flex items-start gap-2 text-sm text-slate-600"><i data-lucide="check-circle-2" class="w-[15px] h-[15px] text-indigo-500 mt-0.5 flex-shrink-0"></i>Applied Software Engineering best practices to integrate field quality check data into a centralized database for real-time quality trend analysis.</li>
+          </ul>
+          <div class="flex flex-wrap gap-2">
+            <span class="text-xs font-medium px-2.5 py-1 rounded-md bg-slate-50 text-slate-600 border border-slate-100">Code Igniters</span>
+            <span class="text-xs font-medium px-2.5 py-1 rounded-md bg-slate-50 text-slate-600 border border-slate-100">PHP</span>
+            <span class="text-xs font-medium px-2.5 py-1 rounded-md bg-slate-50 text-slate-600 border border-slate-100">SQL Server</span>
+            <span class="text-xs font-medium px-2.5 py-1 rounded-md bg-slate-50 text-slate-600 border border-slate-100">HTML</span>
+            <span class="text-xs font-medium px-2.5 py-1 rounded-md bg-slate-50 text-slate-600 border border-slate-100">CSS</span>
+            <span class="text-xs font-medium px-2.5 py-1 rounded-md bg-slate-50 text-slate-600 border border-slate-100">JQuery</span>
+            <span class="text-xs font-medium px-2.5 py-1 rounded-md bg-slate-50 text-slate-600 border border-slate-100">Node.Js</span>
+            <span class="text-xs font-medium px-2.5 py-1 rounded-md bg-slate-50 text-slate-600 border border-slate-100">MariaDB</span>
+            <span class="text-xs font-medium px-2.5 py-1 rounded-md bg-slate-50 text-slate-600 border border-slate-100">Postgre</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- <div class="reveal exp-item relative group">
+        <span class="timeline-dot absolute -left-8 sm:-left-10 top-1.5 w-4 h-4 rounded-full grad-bg border-4 border-white shadow"></span>
+        <div class="exp-card bg-white rounded-2xl border border-slate-100 p-6 sm:p-7">
+          <span class="text-xs font-semibold tracking-wide text-indigo-500">2021 — 2022</span>
+          <h3 class="text-lg font-bold text-slate-900 mt-1">IT Support &amp; Data Assistant</h3>
+          <div class="flex flex-wrap items-center gap-x-3 gap-y-1 text-sm text-slate-500 mb-4">
+            <span class="font-medium text-slate-600">CV Mitra Informatika</span>
+            <span class="flex items-center gap-1"><i data-lucide="map-pin" class="w-[13px] h-[13px]"></i>Bandung, Indonesia</span>
+          </div>
+          <p class="text-slate-500 text-sm leading-relaxed mb-4">Supported internal systems while assisting with early data cleanup and reporting tasks.</p>
+          <ul class="space-y-2 mb-5">
+            <li class="flex items-start gap-2 text-sm text-slate-600"><i data-lucide="check-circle-2" class="w-[15px] h-[15px] text-indigo-500 mt-0.5 flex-shrink-0"></i>Maintained internal databases and resolved data quality issues</li>
+            <li class="flex items-start gap-2 text-sm text-slate-600"><i data-lucide="check-circle-2" class="w-[15px] h-[15px] text-indigo-500 mt-0.5 flex-shrink-0"></i>Assisted in migrating spreadsheet records into a structured database</li>
+          </ul>
+          <div class="flex flex-wrap gap-2">
+            <span class="text-xs font-medium px-2.5 py-1 rounded-md bg-slate-50 text-slate-600 border border-slate-100">MySQL</span>
+            <span class="text-xs font-medium px-2.5 py-1 rounded-md bg-slate-50 text-slate-600 border border-slate-100">Excel</span>
+            <span class="text-xs font-medium px-2.5 py-1 rounded-md bg-slate-50 text-slate-600 border border-slate-100">Linux</span>
+          </div>
+        </div>
+      </div> -->
+    </div>
+  </div>
+</section>
+
+<!-- ============ PROJECTS ============ -->
+<section id="projects" class="py-24 sm:py-28" style="background:#FAFAFC;">
+  <div class="max-w-6xl mx-auto px-5 sm:px-8">
+    <div class="reveal text-center max-w-xl mx-auto mb-14">
+      <h2 class="text-3xl sm:text-4xl font-bold text-slate-900 mb-3">Projects</h2>
+      <p class="text-slate-500">A closer look at problems I've solved, end to end.</p>
+    </div>
+
+    <div class="grid sm:grid-cols-2 gap-6" id="projects-grid">
+      <!-- cards injected are static here, data-index maps to JS project data for modal -->
+      <div class="reveal project-card cursor-pointer bg-white rounded-2xl border border-slate-100 overflow-hidden" data-project="0">
+        <div class="h-36 flex items-center justify-center relative overflow-hidden" style="background-image:linear-gradient(135deg,#EEF2FF 0%,#F5F3FF 100%);">
+          <i data-lucide="bar-chart-3" class="project-thumb-icon w-[42px] h-[42px] text-indigo-400"></i>
+          <div class="project-thumb-overlay absolute inset-0 flex items-center justify-center" style="background-image:linear-gradient(135deg,rgba(79,124,255,0.85),rgba(139,92,246,0.85));">
+            <span class="text-white text-sm font-semibold flex items-center gap-1.5">View Project <i data-lucide="arrow-up-right" class="w-[15px] h-[15px]"></i></span>
+          </div>
+        </div>
+        <div class="p-5">
+          <h3 class="font-bold text-slate-900 mb-2">Automated Data Reporting System</h3>
+          <p class="text-sm text-slate-500 leading-relaxed mb-4 line-clamp-2">Built an automated ETL pipeline using PostgreSQL and Python that ingests, transforms, and schedules reports without manual input.</p>
+          <div class="flex flex-wrap gap-1.5">
+            <span class="text-xs font-medium px-2 py-1 rounded-md bg-slate-50 text-slate-600 border border-slate-100">Python</span>
+            <span class="text-xs font-medium px-2 py-1 rounded-md bg-slate-50 text-slate-600 border border-slate-100">PostgreSQL</span>
+            <span class="text-xs font-medium px-2 py-1 rounded-md bg-slate-50 text-slate-600 border border-slate-100">SQL</span>
+            <span class="text-xs font-medium px-2 py-1 rounded-md bg-slate-50 text-slate-600 border border-slate-100">ETL</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="reveal project-card cursor-pointer bg-white rounded-2xl border border-slate-100 overflow-hidden" data-project="1">
+        <div class="h-36 flex items-center justify-center relative overflow-hidden" style="background-image:linear-gradient(135deg,#EEF2FF 0%,#F5F3FF 100%);">
+          <i data-lucide="database" class="project-thumb-icon w-[42px] h-[42px] text-indigo-400"></i>
+          <div class="project-thumb-overlay absolute inset-0 flex items-center justify-center" style="background-image:linear-gradient(135deg,rgba(79,124,255,0.85),rgba(139,92,246,0.85));">
+            <span class="text-white text-sm font-semibold flex items-center gap-1.5">View Project <i data-lucide="arrow-up-right" class="w-[15px] h-[15px]"></i></span>
+          </div>
+        </div>
+        <div class="p-5">
+          <h3 class="font-bold text-slate-900 mb-2">Integrated Operation Plan Data Warehouse</h3>
+          <p class="text-sm text-slate-500 leading-relaxed mb-4 line-clamp-2">Designed a normalized PostgreSQL warehouse with a scheduled ingestion layer, consolidating every regional sales source into one model.</p>
+          <div class="flex flex-wrap gap-1.5">
+            <span class="text-xs font-medium px-2 py-1 rounded-md bg-slate-50 text-slate-600 border border-slate-100">PostgreSQL</span>
+            <span class="text-xs font-medium px-2 py-1 rounded-md bg-slate-50 text-slate-600 border border-slate-100">Python</span>
+            <span class="text-xs font-medium px-2 py-1 rounded-md bg-slate-50 text-slate-600 border border-slate-100">Power BI</span>
+            <span class="text-xs font-medium px-2 py-1 rounded-md bg-slate-50 text-slate-600 border border-slate-100">Data Modeling</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="reveal project-card cursor-pointer bg-white rounded-2xl border border-slate-100 overflow-hidden" data-project="2">
+        <div class="h-36 flex items-center justify-center relative overflow-hidden" style="background-image:linear-gradient(135deg,#EEF2FF 0%,#F5F3FF 100%);">
+          <i data-lucide="cloud" class="project-thumb-icon w-[42px] h-[42px] text-indigo-400"></i>
+          <div class="project-thumb-overlay absolute inset-0 flex items-center justify-center" style="background-image:linear-gradient(135deg,rgba(79,124,255,0.85),rgba(139,92,246,0.85));">
+            <span class="text-white text-sm font-semibold flex items-center gap-1.5">View Project <i data-lucide="arrow-up-right" class="w-[15px] h-[15px]"></i></span>
+          </div>
+        </div>
+        <div class="p-5">
+          <h3 class="font-bold text-slate-900 mb-2">WebGIS IOP</h3>
+          <p class="text-sm text-slate-500 leading-relaxed mb-4 line-clamp-2">Deployed a Dockerized ingestion service on AWS that streams logs into a queryable store with automated retention rules.</p>
+          <div class="flex flex-wrap gap-1.5">
+            <span class="text-xs font-medium px-2 py-1 rounded-md bg-slate-50 text-slate-600 border border-slate-100">AWS</span>
+            <span class="text-xs font-medium px-2 py-1 rounded-md bg-slate-50 text-slate-600 border border-slate-100">Docker</span>
+            <span class="text-xs font-medium px-2 py-1 rounded-md bg-slate-50 text-slate-600 border border-slate-100">Python</span>
+            <span class="text-xs font-medium px-2 py-1 rounded-md bg-slate-50 text-slate-600 border border-slate-100">Linux</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="reveal project-card cursor-pointer bg-white rounded-2xl border border-slate-100 overflow-hidden" data-project="3">
+        <div class="h-36 flex items-center justify-center relative overflow-hidden" style="background-image:linear-gradient(135deg,#EEF2FF 0%,#F5F3FF 100%);">
+          <i data-lucide="bar-chart-3" class="project-thumb-icon w-[42px] h-[42px] text-indigo-400"></i>
+          <div class="project-thumb-overlay absolute inset-0 flex items-center justify-center" style="background-image:linear-gradient(135deg,rgba(79,124,255,0.85),rgba(139,92,246,0.85));">
+            <span class="text-white text-sm font-semibold flex items-center gap-1.5">View Project <i data-lucide="arrow-up-right" class="w-[15px] h-[15px]"></i></span>
+          </div>
+        </div>
+        <div class="p-5">
+          <h3 class="font-bold text-slate-900 mb-2">Integrated Mill Plan</h3>
+          <p class="text-sm text-slate-500 leading-relaxed mb-4 line-clamp-2">Built a reusable SQL + Python toolkit that segments customers and surfaces churn risk indicators on a scheduled basis.</p>
+          <div class="flex flex-wrap gap-1.5">
+            <span class="text-xs font-medium px-2 py-1 rounded-md bg-slate-50 text-slate-600 border border-slate-100">SQL</span>
+            <span class="text-xs font-medium px-2 py-1 rounded-md bg-slate-50 text-slate-600 border border-slate-100">Python</span>
+            <span class="text-xs font-medium px-2 py-1 rounded-md bg-slate-50 text-slate-600 border border-slate-100">Data Analysis</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Project Modal -->
+<div id="project-modal" class="hidden fixed inset-0 z-[100] items-center justify-center p-4" style="background-color:rgba(15,23,42,0.55); backdrop-filter:blur(4px);">
+  <div class="modal-in bg-white rounded-3xl max-w-2xl w-full max-h-[85vh] overflow-y-auto shadow-2xl" id="project-modal-content">
+    <div class="h-40 flex items-center justify-center relative grad-bg">
+      <i id="project-modal-icon" data-lucide="bar-chart-3" class="w-12 h-12 text-white/90"></i>
+      <button id="project-modal-close" aria-label="Close" class="absolute top-4 right-4 w-9 h-9 rounded-full bg-white/20 hover:bg-white/30 flex items-center justify-center text-white">
+        <i data-lucide="x" class="w-[18px] h-[18px]"></i>
+      </button>
+    </div>
+    <div class="p-6 sm:p-8">
+      <h3 id="project-modal-title" class="text-2xl font-bold text-slate-900 mb-5"></h3>
+      <div class="space-y-5">
+        <div>
+          <h4 class="text-xs font-semibold tracking-wide text-indigo-500 mb-1.5">PROBLEM</h4>
+          <p id="project-modal-problem" class="text-slate-600 text-sm leading-relaxed"></p>
+        </div>
+        <div>
+          <h4 class="text-xs font-semibold tracking-wide text-indigo-500 mb-1.5">SOLUTION</h4>
+          <p id="project-modal-solution" class="text-slate-600 text-sm leading-relaxed"></p>
+        </div>
+        <div>
+          <h4 class="text-xs font-semibold tracking-wide text-indigo-500 mb-1.5">ARCHITECTURE</h4>
+          <p id="project-modal-architecture" class="text-slate-600 text-sm leading-relaxed"></p>
+        </div>
+        <div>
+          <h4 class="text-xs font-semibold tracking-wide text-indigo-500 mb-1.5">RESULT</h4>
+          <p id="project-modal-impact" class="text-slate-600 text-sm leading-relaxed"></p>
+        </div>
+      </div>
+      <div id="project-modal-tech" class="flex flex-wrap gap-2 my-6"></div>
+      <div class="flex flex-wrap gap-3">
+        <a id="project-modal-github" href="#" target="_blank" rel="noreferrer" class="btn-secondary inline-flex items-center gap-2 px-6 py-3 rounded-xl font-medium text-sm">
+          View Code <i data-lucide="github" class="w-4 h-4"></i>
+        </a>
+        <a id="project-modal-demo" href="#" target="_blank" rel="noreferrer" class="hidden btn-primary inline-flex items-center gap-2 px-6 py-3 rounded-xl font-medium text-sm">
+          Live Demo <i data-lucide="external-link" class="w-4 h-4"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============ CERTIFICATIONS ============ -->
+<section id="certifications" class="py-24 sm:py-28">
+  <div class="max-w-6xl mx-auto px-5 sm:px-8">
+    <div class="reveal text-center max-w-xl mx-auto mb-14">
+      <h2 class="text-3xl sm:text-4xl font-bold text-slate-900 mb-3">Certifications</h2>
+      <p class="text-slate-500">Credentials backing up the skills above.</p>
+    </div>
+
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5" id="certs-grid">
+      <button class="cert-card text-left w-full bg-white rounded-2xl border border-slate-100 p-5 reveal group" data-cert="0">
+        <div class="flex items-start justify-between mb-3">
+          <div class="w-10 h-10 rounded-xl grad-bg flex items-center justify-center text-white flex-shrink-0"><i data-lucide="award" class="w-[18px] h-[18px]"></i></div>
+          <i data-lucide="chevron-right" class="w-4 h-4 text-slate-300 group-hover:text-indigo-400"></i>
+        </div>
+        <h3 class="font-semibold text-slate-800 text-sm leading-snug mb-1">AWS Certified Cloud Practitioner</h3>
+        <p class="text-xs text-slate-500">Amazon Web Services · 2024</p>
+      </button>
+
+      <button class="cert-card text-left w-full bg-white rounded-2xl border border-slate-100 p-5 reveal group" data-cert="1">
+        <div class="flex items-start justify-between mb-3">
+          <div class="w-10 h-10 rounded-xl grad-bg flex items-center justify-center text-white flex-shrink-0"><i data-lucide="award" class="w-[18px] h-[18px]"></i></div>
+          <i data-lucide="chevron-right" class="w-4 h-4 text-slate-300 group-hover:text-indigo-400"></i>
+        </div>
+        <h3 class="font-semibold text-slate-800 text-sm leading-snug mb-1">PostgreSQL for Data Engineers</h3>
+        <p class="text-xs text-slate-500">DataCamp · 2023</p>
+      </button>
+
+      <button class="cert-card text-left w-full bg-white rounded-2xl border border-slate-100 p-5 reveal group" data-cert="2">
+        <div class="flex items-start justify-between mb-3">
+          <div class="w-10 h-10 rounded-xl grad-bg flex items-center justify-center text-white flex-shrink-0"><i data-lucide="award" class="w-[18px] h-[18px]"></i></div>
+          <i data-lucide="chevron-right" class="w-4 h-4 text-slate-300 group-hover:text-indigo-400"></i>
+        </div>
+        <h3 class="font-semibold text-slate-800 text-sm leading-snug mb-1">Python for Data Engineering</h3>
+        <p class="text-xs text-slate-500">DataCamp · 2023</p>
+      </button>
+
+      <button class="cert-card text-left w-full bg-white rounded-2xl border border-slate-100 p-5 reveal group" data-cert="3">
+        <div class="flex items-start justify-between mb-3">
+          <div class="w-10 h-10 rounded-xl grad-bg flex items-center justify-center text-white flex-shrink-0"><i data-lucide="award" class="w-[18px] h-[18px]"></i></div>
+          <i data-lucide="chevron-right" class="w-4 h-4 text-slate-300 group-hover:text-indigo-400"></i>
+        </div>
+        <h3 class="font-semibold text-slate-800 text-sm leading-snug mb-1">SQL Advanced Certification</h3>
+        <p class="text-xs text-slate-500">HackerRank · 2022</p>
+      </button>
+
+      <button class="cert-card text-left w-full bg-white rounded-2xl border border-slate-100 p-5 reveal group" data-cert="4">
+        <div class="flex items-start justify-between mb-3">
+          <div class="w-10 h-10 rounded-xl grad-bg flex items-center justify-center text-white flex-shrink-0"><i data-lucide="award" class="w-[18px] h-[18px]"></i></div>
+          <i data-lucide="chevron-right" class="w-4 h-4 text-slate-300 group-hover:text-indigo-400"></i>
+        </div>
+        <h3 class="font-semibold text-slate-800 text-sm leading-snug mb-1">Data Analysis with Power BI</h3>
+        <p class="text-xs text-slate-500">Microsoft · 2022</p>
+      </button>
+
+      <button class="cert-card text-left w-full bg-white rounded-2xl border border-slate-100 p-5 reveal group" data-cert="5">
+        <div class="flex items-start justify-between mb-3">
+          <div class="w-10 h-10 rounded-xl grad-bg flex items-center justify-center text-white flex-shrink-0"><i data-lucide="award" class="w-[18px] h-[18px]"></i></div>
+          <i data-lucide="chevron-right" class="w-4 h-4 text-slate-300 group-hover:text-indigo-400"></i>
+        </div>
+        <h3 class="font-semibold text-slate-800 text-sm leading-snug mb-1">Google Data Analytics Certificate</h3>
+        <p class="text-xs text-slate-500">Google · 2021</p>
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- Cert Modal -->
+<div id="cert-modal" class="hidden fixed inset-0 z-[100] items-center justify-center p-4" style="background-color:rgba(15,23,42,0.55); backdrop-filter:blur(4px);">
+  <div class="modal-in bg-white rounded-3xl max-w-md w-full p-7 shadow-2xl relative">
+    <button id="cert-modal-close" aria-label="Close" class="absolute top-5 right-5 w-8 h-8 rounded-full bg-slate-50 hover:bg-slate-100 flex items-center justify-center text-slate-500">
+      <i data-lucide="x" class="w-4 h-4"></i>
+    </button>
+    <div class="w-14 h-14 rounded-2xl grad-bg flex items-center justify-center text-white mb-5"><i data-lucide="award" class="w-6 h-6"></i></div>
+    <h3 id="cert-modal-title" class="text-lg font-bold text-slate-900 mb-1.5"></h3>
+    <p id="cert-modal-meta" class="text-sm text-slate-500 mb-4"></p>
+    <p id="cert-modal-id" class="text-xs text-slate-400 mb-5"></p>
+    <a id="cert-modal-url" href="#" target="_blank" rel="noreferrer" class="btn-primary inline-flex items-center gap-2 px-6 py-3 rounded-xl font-medium text-sm">
+      View Credential <i data-lucide="external-link" class="w-4 h-4"></i>
+    </a>
+  </div>
+</div>
+
+<!-- ============ EDUCATION ============ -->
+<section id="education" class="py-20 sm:py-24" style="background:#FAFAFC;">
+  <div class="max-w-3xl mx-auto px-5 sm:px-8">
+    <div class="reveal"><h2 class="text-3xl sm:text-4xl font-bold text-slate-900 mb-10 text-center">Education</h2></div>
+    <div class="reveal bg-white rounded-2xl border border-slate-100 p-6 flex items-start gap-4">
+      <div class="w-11 h-11 rounded-xl grad-bg flex items-center justify-center text-white flex-shrink-0"><i data-lucide="graduation-cap" class="w-5 h-5"></i></div>
+      <div>
+        <h3 class="font-bold text-slate-900">B.Sc. in Information Systems</h3>
+        <p class="text-sm text-slate-500 mb-1">Universitas Telkom · 2017 — 2021</p>
+        <p class="text-sm text-slate-400">Databases, Data Structures, Systems Analysis, Statistics</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONTACT ============ -->
+<section id="contact" class="py-24 sm:py-28">
+  <div class="max-w-5xl mx-auto px-5 sm:px-8">
+    <div class="reveal text-center max-w-xl mx-auto mb-14">
+      <h2 class="text-3xl sm:text-4xl font-bold text-slate-900 mb-3">Let's Work Together</h2>
+      <p class="text-slate-500">Have a project, opportunity, or role in mind? Let's connect.</p>
+    </div>
+
+    <div class="grid lg:grid-cols-5 gap-8">
+      <div class="reveal lg:col-span-2 space-y-4">
+        <a href="mailto:rio.saputra@email.com" class="contact-row flex items-center gap-3.5 bg-white rounded-xl border border-slate-100 p-4 group">
+          <div class="w-10 h-10 rounded-lg grad-bg flex items-center justify-center text-white flex-shrink-0"><i data-lucide="mail" class="w-[17px] h-[17px]"></i></div>
+          <div><div class="text-xs text-slate-400">Email</div><div class="text-sm font-medium text-slate-700 group-hover:text-indigo-600">rio.shacou@gmail.com</div></div>
+        </a>
+        <a href="tel:+6281234567890" class="contact-row flex items-center gap-3.5 bg-white rounded-xl border border-slate-100 p-4 group">
+          <div class="w-10 h-10 rounded-lg grad-bg flex items-center justify-center text-white flex-shrink-0"><i data-lucide="phone" class="w-[17px] h-[17px]"></i></div>
+          <div><div class="text-xs text-slate-400">Phone</div><div class="text-sm font-medium text-slate-700 group-hover:text-indigo-600">+62 821-7019-9766</div></div>
+        </a>
+        <a href="https://linkedin.com/in/riosaputra" target="_blank" rel="noreferrer" class="contact-row flex items-center gap-3.5 bg-white rounded-xl border border-slate-100 p-4 group">
+          <div class="w-10 h-10 rounded-lg grad-bg flex items-center justify-center text-white flex-shrink-0"><svg class="w-[17px] h-[17px]" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.36V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28ZM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12ZM7.12 20.45H3.56V9h3.56v11.45Z"/></svg></div>
+          <div><div class="text-xs text-slate-400">LinkedIn</div><div class="text-sm font-medium text-slate-700 group-hover:text-indigo-600">linkedin.com/in/riosaputra</div></div>
+        </a>
+      </div>
+
+      <div class="reveal lg:col-span-3">
+        <form id="contact-form" novalidate class="bg-white rounded-2xl border border-slate-100 p-6 sm:p-7 space-y-4">
+          <div>
+            <label class="block text-sm font-medium text-slate-600 mb-1.5" for="name">Name</label>
+            <input id="name" name="name" type="text" class="field-input w-full px-4 py-2.5 rounded-xl text-sm" />
+            <p id="error-name" class="text-xs text-red-500 mt-1 hidden"></p>
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-slate-600 mb-1.5" for="email">Email</label>
+            <input id="email" name="email" type="email" class="field-input w-full px-4 py-2.5 rounded-xl text-sm" />
+            <p id="error-email" class="text-xs text-red-500 mt-1 hidden"></p>
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-slate-600 mb-1.5" for="message">Message</label>
+            <textarea id="message" name="message" rows="4" class="field-input w-full px-4 py-2.5 rounded-xl text-sm resize-none"></textarea>
+            <p id="error-message" class="text-xs text-red-500 mt-1 hidden"></p>
+          </div>
+          <button type="submit" class="btn-primary inline-flex items-center gap-2 px-6 py-3 rounded-xl font-medium text-sm">
+            Send Message <i data-lucide="send" class="w-4 h-4"></i>
+          </button>
+          <p id="form-success" class="text-sm text-emerald-600 items-center gap-1.5 pt-1 hidden">
+            <i data-lucide="check-circle-2" class="w-[15px] h-[15px] inline"></i> Message sent successfully.
+          </p>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="border-t border-slate-100 py-8">
+  <div class="max-w-6xl mx-auto px-5 sm:px-8 flex flex-col sm:flex-row items-center justify-between gap-3">
+    <p class="text-sm text-slate-400" id="footer-year">© Rio Saputra. All rights reserved.</p>
+    <div class="flex items-center gap-4">
+      <a href="https://linkedin.com/in/riosaputra" target="_blank" rel="noreferrer" class="text-slate-400 hover:text-indigo-500"><i data-lucide="linkedin" class="w-[17px] h-[17px]"></i></a>
+      <a href="https://github.com/riosaputra" target="_blank" rel="noreferrer" class="text-slate-400 hover:text-indigo-500"><i data-lucide="github" class="w-[17px] h-[17px]"></i></a>
+      <a href="mailto:rio.saputra@email.com" class="text-slate-400 hover:text-indigo-500"><i data-lucide="mail" class="w-[17px] h-[17px]"></i></a>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* ---------- data for modals ---------- */
+const PROJECTS = [
+  {
+    name: "Automated Data Reporting System", icon: "bar-chart-3",
+    problem: "Manual reporting required hours of repetitive spreadsheet work every week.",
+    solution: "Built an automated ETL pipeline using PostgreSQL and Python that ingests, transforms, and schedules reports without manual input.",
+    architecture: "Source systems → Python extraction scripts → staging tables in PostgreSQL → scheduled transformation jobs → BI dashboard.",
+    impact: "Removed the manual reporting workload and delivered reports several hours faster each cycle.",
+    tech: ["Python","PostgreSQL","SQL","ETL"],
+    github: "https://github.com/riosaputra/automated-reporting", demo: ""
+  },
+  {
+    name: "Sales Data Warehouse", icon: "database",
+    problem: "Sales data lived across disconnected spreadsheets, making trend analysis slow and error-prone.",
+    solution: "Designed a normalized PostgreSQL warehouse with a scheduled ingestion layer, consolidating every regional sales source into one model.",
+    architecture: "Regional CSV/API sources → Python ingestion → PostgreSQL warehouse (star schema) → Power BI.",
+    impact: "Gave the sales team a single source of truth and cut analysis turnaround from days to minutes.",
+    tech: ["PostgreSQL","Python","Power BI","Data Modeling"],
+    github: "https://github.com/riosaputra/sales-warehouse", demo: ""
+  },
+  {
+    name: "Cloud Log Pipeline", icon: "cloud",
+    problem: "Application logs were scattered across servers with no centralized way to monitor or query them.",
+    solution: "Deployed a Dockerized ingestion service on AWS that streams logs into a queryable store with automated retention rules.",
+    architecture: "App servers → log shipper → AWS S3 (raw) → scheduled Python parser → PostgreSQL (queryable) → alerts.",
+    impact: "Cut incident investigation time and gave the engineering team searchable, centralized logs.",
+    tech: ["AWS","Docker","Python","Linux"],
+    github: "https://github.com/riosaputra/cloud-log-pipeline", demo: ""
+  },
+  {
+    name: "Customer Churn Analysis Toolkit", icon: "bar-chart-3",
+    problem: "The business had no structured way to identify customers at risk of churning.",
+    solution: "Built a reusable SQL + Python toolkit that segments customers and surfaces churn risk indicators on a scheduled basis.",
+    architecture: "CRM export → SQL transformation views → Python scoring script → exported report + dashboard.",
+    impact: "Enabled the retention team to act on at-risk accounts weeks earlier than before.",
+    tech: ["SQL","Python","Data Analysis"],
+    github: "https://github.com/riosaputra/churn-toolkit", demo: ""
+  }
+];
+
+const CERTS = [
+  { name: "AWS Certified Cloud Practitioner", issuer: "Amazon Web Services", date: "2024", id: "AWS-CP-20241", url: "https://aws.amazon.com/certification/" },
+  { name: "PostgreSQL for Data Engineers", issuer: "DataCamp", date: "2023", id: "DC-PG-88213", url: "https://www.datacamp.com/" },
+  { name: "Python for Data Engineering", issuer: "DataCamp", date: "2023", id: "DC-PY-77120", url: "https://www.datacamp.com/" },
+  { name: "SQL Advanced Certification", issuer: "HackerRank", date: "2022", id: "HR-SQL-44902", url: "https://www.hackerrank.com/" },
+  { name: "Data Analysis with Power BI", issuer: "Microsoft", date: "2022", id: "MS-PBI-31005", url: "https://learn.microsoft.com/certifications/" },
+  { name: "Google Data Analytics Certificate", issuer: "Google", date: "2021", id: "GG-DA-19834", url: "https://grow.google/certificates/data-analytics/" }
+];
+
+/* ---------- icons ---------- */
+lucide.createIcons();
+
+/* ---------- navbar scroll + active link ---------- */
+const navbar = document.getElementById('navbar');
+window.addEventListener('scroll', () => {
+  navbar.classList.toggle('scrolled', window.scrollY > 12);
+});
+
+const sections = ['home','about','skills','experience','projects','certifications','education','contact']
+  .map(id => document.getElementById(id)).filter(Boolean);
+const navLinks = document.querySelectorAll('.nav-link');
+const sectionObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      navLinks.forEach(l => l.classList.toggle('active', l.dataset.section === entry.target.id));
+    }
+  });
+}, { rootMargin: '-45% 0px -50% 0px' });
+sections.forEach(s => sectionObserver.observe(s));
+
+/* ---------- mobile menu ---------- */
+const menuBtn = document.getElementById('mobile-menu-btn');
+const mobileMenu = document.getElementById('mobile-menu');
+menuBtn.addEventListener('click', () => {
+  const isOpen = !mobileMenu.classList.contains('hidden');
+  mobileMenu.classList.toggle('hidden');
+  menuBtn.innerHTML = isOpen ? '<i data-lucide="menu" class="w-6 h-6"></i>' : '<i data-lucide="x" class="w-6 h-6"></i>';
+  lucide.createIcons();
+});
+document.querySelectorAll('.mobile-link').forEach(link => {
+  link.addEventListener('click', () => {
+    mobileMenu.classList.add('hidden');
+    menuBtn.innerHTML = '<i data-lucide="menu" class="w-6 h-6"></i>';
+    lucide.createIcons();
+  });
+});
+
+/* ---------- reveal on scroll ---------- */
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      revealObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.12 });
+document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+/* ---------- skills filter ---------- */
+document.getElementById('skill-filters').addEventListener('click', (e) => {
+  const btn = e.target.closest('.filter-btn');
+  if (!btn) return;
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  const filter = btn.dataset.filter;
+  document.querySelectorAll('#skills-grid .skill-card').forEach(card => {
+    card.style.display = (filter === 'all' || card.dataset.cat === filter) ? '' : 'none';
+  });
+});
+
+/* ---------- project modal ---------- */
+const projectModal = document.getElementById('project-modal');
+document.getElementById('projects-grid').addEventListener('click', (e) => {
+  const card = e.target.closest('.project-card');
+  if (!card) return;
+  const p = PROJECTS[parseInt(card.dataset.project, 10)];
+  document.getElementById('project-modal-title').textContent = p.name;
+  document.getElementById('project-modal-problem').textContent = p.problem;
+  document.getElementById('project-modal-solution').textContent = p.solution;
+  document.getElementById('project-modal-architecture').textContent = p.architecture;
+  document.getElementById('project-modal-impact').textContent = p.impact;
+  document.getElementById('project-modal-icon').setAttribute('data-lucide', p.icon);
+  document.getElementById('project-modal-tech').innerHTML = p.tech.map(t =>
+    `<span class="text-xs font-medium px-2.5 py-1 rounded-md bg-indigo-50 text-indigo-600">${t}</span>`).join('');
+  const ghLink = document.getElementById('project-modal-github');
+  const demoLink = document.getElementById('project-modal-demo');
+  if (p.github) { ghLink.href = p.github; ghLink.classList.remove('hidden'); } else { ghLink.classList.add('hidden'); }
+  if (p.demo) { demoLink.href = p.demo; demoLink.classList.remove('hidden'); } else { demoLink.classList.add('hidden'); }
+  projectModal.classList.remove('hidden');
+  projectModal.classList.add('flex');
+  document.body.style.overflow = 'hidden';
+  lucide.createIcons();
+});
+document.getElementById('project-modal-close').addEventListener('click', closeProjectModal);
+projectModal.addEventListener('click', (e) => { if (e.target === projectModal) closeProjectModal(); });
+function closeProjectModal() {
+  projectModal.classList.add('hidden');
+  projectModal.classList.remove('flex');
+  document.body.style.overflow = '';
+}
+
+/* ---------- cert modal ---------- */
+const certModal = document.getElementById('cert-modal');
+document.getElementById('certs-grid').addEventListener('click', (e) => {
+  const card = e.target.closest('.cert-card');
+  if (!card) return;
+  const c = CERTS[parseInt(card.dataset.cert, 10)];
+  document.getElementById('cert-modal-title').textContent = c.name;
+  document.getElementById('cert-modal-meta').textContent = c.issuer + ' · ' + c.date;
+  document.getElementById('cert-modal-id').textContent = c.id ? ('Credential ID: ' + c.id) : '';
+  document.getElementById('cert-modal-url').href = c.url || '#';
+  certModal.classList.remove('hidden');
+  certModal.classList.add('flex');
+  lucide.createIcons();
+});
+document.getElementById('cert-modal-close').addEventListener('click', closeCertModal);
+certModal.addEventListener('click', (e) => { if (e.target === certModal) closeCertModal(); });
+function closeCertModal() {
+  certModal.classList.add('hidden');
+  certModal.classList.remove('flex');
+}
+
+/* ---------- escape key closes any open modal ---------- */
+window.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') { closeProjectModal(); closeCertModal(); }
+});
+
+/* ---------- contact form validation (frontend only, no real send) ---------- */
+document.getElementById('contact-form').addEventListener('submit', (e) => {
+  e.preventDefault();
+  const name = document.getElementById('name');
+  const email = document.getElementById('email');
+  const message = document.getElementById('message');
+  const errName = document.getElementById('error-name');
+  const errEmail = document.getElementById('error-email');
+  const errMessage = document.getElementById('error-message');
+  const success = document.getElementById('form-success');
+
+  let valid = true;
+  [name, email, message].forEach(f => f.classList.remove('field-error'));
+  [errName, errEmail, errMessage].forEach(f => f.classList.add('hidden'));
+
+  if (!name.value.trim()) { errName.textContent = 'Name is required.'; errName.classList.remove('hidden'); name.classList.add('field-error'); valid = false; }
+  if (!email.value.trim()) { errEmail.textContent = 'Email is required.'; errEmail.classList.remove('hidden'); email.classList.add('field-error'); valid = false; }
+  else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value)) { errEmail.textContent = 'Enter a valid email address.'; errEmail.classList.remove('hidden'); email.classList.add('field-error'); valid = false; }
+  if (!message.value.trim()) { errMessage.textContent = 'Message is required.'; errMessage.classList.remove('hidden'); message.classList.add('field-error'); valid = false; }
+
+  if (valid) {
+    // No backend is connected yet — this only confirms the form is filled out
+    // correctly. Wire this up to a real email service to actually send it.
+    success.classList.remove('hidden');
+    success.classList.add('flex');
+    document.getElementById('contact-form').reset();
+    setTimeout(() => { success.classList.add('hidden'); success.classList.remove('flex'); }, 4000);
+  }
+});
+
+/* ---------- footer year ---------- */
+document.getElementById('footer-year').textContent = '© ' + new Date().getFullYear() + ' Rio Saputra. All rights reserved.';
+</script>
+</body>
+</html>
